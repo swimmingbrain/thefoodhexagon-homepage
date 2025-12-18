@@ -6,6 +6,9 @@
   <title>The Food Hexagon - Kaaidistrict Food Hub</title>
   <meta name="description" content="Discover local food, track your carbon footprint, and connect with your community in Kaaidistrict, Bruges.">
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,190 +17,399 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: linear-gradient(180deg, #F8FAFC 0%, #E6EEF5 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      background: linear-gradient(135deg, #f0f7ff 0%, #e0efff 50%, #f5f9ff 100%);
+      color: #0a3258;
     }
 
-    .container {
-      text-align: center;
-      max-width: 480px;
+    /* Gradient orbs background */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(10, 50, 88, 0.15) 0%, transparent 70%);
+      top: -200px;
+      left: -100px;
+    }
+
+    .orb-2 {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(10, 50, 88, 0.1) 0%, transparent 70%);
+      bottom: -100px;
+      right: -100px;
+    }
+
+    .orb-3 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(34, 197, 94, 0.12) 0%, transparent 70%);
+      top: 40%;
+      left: 30%;
+    }
+
+    /* Main layout */
+    main {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 60px;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Hero section */
+    .hero {
+      flex: 1;
+      max-width: 600px;
     }
 
     .logo {
-      width: 140px;
-      height: 140px;
-      margin-bottom: 24px;
-      border-radius: 28px;
-      box-shadow: 0 8px 32px rgba(10, 50, 88, 0.15);
-    }
-
-    h1 {
-      color: #0a3258;
-      font-size: 2rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .subtitle {
-      color: #64748B;
-      font-size: 1.1rem;
+      width: 240px;
+      height: 240px;
       margin-bottom: 32px;
     }
 
-    .tagline {
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 20px;
       color: #0a3258;
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 40px;
-      padding: 0 16px;
     }
 
+    .tagline {
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #4a6a8a;
+      margin-bottom: 40px;
+    }
+
+    /* Buttons */
     .buttons {
       display: flex;
-      flex-direction: column;
       gap: 16px;
-      align-items: center;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      width: 100%;
-      max-width: 280px;
-      padding: 16px 24px;
+      gap: 10px;
+      padding: 14px 24px;
       border-radius: 12px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: default;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid #0a3258;
+      background: white;
+      color: #0a3258;
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(10, 50, 88, 0.2);
-    }
-
-    .btn-android {
       background: #0a3258;
       color: white;
-    }
-
-    .btn-ios {
-      background: white;
-      color: #0a3258;
-      border: 2px solid #0a3258;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(10, 50, 88, 0.25);
     }
 
     .btn-icon {
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
     }
 
-    .coming-soon {
-      font-size: 0.75rem;
+    .coming-badge {
+      font-size: 0.7rem;
+      background: rgba(10, 50, 88, 0.1);
+      padding: 4px 8px;
+      border-radius: 6px;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      opacity: 0.8;
-      margin-left: 4px;
+      letter-spacing: 0.5px;
     }
 
+    .btn:hover .coming-badge {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Features */
     .features {
       display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-top: 48px;
+      gap: 32px;
       flex-wrap: wrap;
     }
 
     .feature {
       display: flex;
       align-items: center;
-      gap: 8px;
-      color: #64748B;
-      font-size: 0.9rem;
+      gap: 12px;
     }
 
     .feature-icon {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: 1px solid rgba(10, 50, 88, 0.15);
+      border-radius: 12px;
       font-size: 1.2rem;
+      box-shadow: 0 4px 12px rgba(10, 50, 88, 0.08);
     }
 
-    footer {
+    .feature-text {
+      font-size: 0.9rem;
+      color: #4a6a8a;
+      font-weight: 500;
+    }
+
+    .copyright {
       margin-top: 48px;
-      color: #94A3B8;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      color: #8aa4be;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.75rem;
+    /* Survey CTA card */
+    .survey-cta {
+      width: 360px;
+      flex-shrink: 0;
+      background: white;
+      border: 1px solid rgba(10, 50, 88, 0.1);
+      border-radius: 24px;
+      padding: 40px 32px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(10, 50, 88, 0.1);
+    }
+
+    .survey-icon {
+      width: 64px;
+      height: 64px;
+      background: linear-gradient(135deg, #0a3258 0%, #1a5a9a 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 1.8rem;
+    }
+
+    .survey-cta h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #0a3258;
+    }
+
+    .survey-cta p {
+      font-size: 0.95rem;
+      color: #4a6a8a;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .survey-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 16px 28px;
+      background: linear-gradient(135deg, #0a3258 0%, #1a5a9a 100%);
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .survey-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(10, 50, 88, 0.3);
+    }
+
+    .survey-btn svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .survey-time {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: #8aa4be;
+    }
+
+    /* Responsive */
+    @media (max-width: 1000px) {
+      .content-wrapper {
+        flex-direction: column;
+        text-align: center;
       }
 
-      .subtitle {
-        font-size: 1rem;
+      .hero {
+        max-width: 100%;
+        order: 2;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .features {
+        justify-content: center;
+      }
+
+      .survey-cta {
+        width: 100%;
+        max-width: 400px;
+        order: 1;
+      }
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 32px 20px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .tagline {
+        font-size: 1.05rem;
+      }
+
+      .buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
       }
 
       .features {
         gap: 16px;
       }
+
+      .feature {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+      }
+
+      .survey-cta {
+        padding: 32px 24px;
+      }
     }
   </style>
 </head>
 <body>
-  <script type="text/javascript" src="https://form.jotform.com/jsform/253514287526057"></script>
-  <div class="container">
-    <img src="icon.png" alt="The Food Hexagon Logo" class="logo">
-
-    <h1>The Food Hexagon</h1>
-    <p class="subtitle">Kaaidistrict Food Hub</p>
-
-    <p class="tagline">
-      Kaaidistrict. An industrial past. A social future.
-    </p>
-
-    <div class="buttons">
-      <div class="btn btn-android">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.523 2.047a.5.5 0 0 0-.738.17l-1.964 3.39a9.06 9.06 0 0 0-5.642 0L7.215 2.217a.5.5 0 0 0-.738-.17.5.5 0 0 0-.17.738l1.84 3.18A8.96 8.96 0 0 0 3 13h18a8.96 8.96 0 0 0-5.147-7.035l1.84-3.18a.5.5 0 0 0-.17-.738zM7 10.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm8 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM3 14v6a2 2 0 0 0 2 2h1v-8H3zm17 0v8h1a2 2 0 0 0 2-2v-6h-3zM6 14v9h3v-9H6zm4 0v9h4v-9h-4zm5 0v9h3v-9h-3z"/>
-        </svg>
-        Android <span class="coming-soon">Coming Soon</span>
-      </div>
-
-      <div class="btn btn-ios">
-        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-        </svg>
-        iOS <span class="coming-soon">Coming Soon</span>
-      </div>
-    </div>
-
-    <div class="features">
-      <div class="feature">
-        <span class="feature-icon">🥬</span>
-        Local Producers
-      </div>
-      <div class="feature">
-        <span class="feature-icon">🚲</span>
-        Food Bikes
-      </div>
-      <div class="feature">
-        <span class="feature-icon">♻️</span>
-        Compost Boxes
-      </div>
-    </div>
-
-    <footer>
-      &copy; 2025 The Food Hexagon x RunEU x Re-Value
-    </footer>
+  <!-- Background gradients -->
+  <div class="bg-gradient">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
   </div>
+
+  <main>
+    <div class="content-wrapper">
+      <!-- Hero content -->
+      <section class="hero">
+        <img src="icon.png" alt="The Food Hexagon Logo" class="logo">
+
+        <h1>The Food Hexagon</h1>
+
+        <p class="tagline">
+          Kaaidistrict. An industrial past. A social future.
+        </p>
+
+        <div class="buttons">
+          <button class="btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.523 2.047a.5.5 0 0 0-.738.17l-1.964 3.39a9.06 9.06 0 0 0-5.642 0L7.215 2.217a.5.5 0 0 0-.738-.17.5.5 0 0 0-.17.738l1.84 3.18A8.96 8.96 0 0 0 3 13h18a8.96 8.96 0 0 0-5.147-7.035l1.84-3.18a.5.5 0 0 0-.17-.738zM7 10.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm8 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM3 14v6a2 2 0 0 0 2 2h1v-8H3zm17 0v8h1a2 2 0 0 0 2-2v-6h-3zM6 14v9h3v-9H6zm4 0v9h4v-9h-4zm5 0v9h3v-9h-3z"/>
+            </svg>
+            Android
+            <span class="coming-badge">Soon</span>
+          </button>
+
+          <button class="btn">
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            iOS
+            <span class="coming-badge">Soon</span>
+          </button>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="feature-icon">📋</div>
+            <span class="feature-text">More Awareness</span>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">🥬</div>
+            <span class="feature-text">Sustainable Solutions</span>
+          </div>
+          <div class="feature">
+            <div class="feature-icon">♻️</div>
+            <span class="feature-text">Compost Boxes</span>
+          </div>
+        </div>
+
+        <p class="copyright">&copy; 2025 The Food Hexagon | RUN-EU | Re-Value</p>
+      </section>
+
+      <!-- Survey CTA -->
+      <aside class="survey-cta">
+        <div class="survey-icon">📋</div>
+        <h3>Help Shape Our Community</h3>
+        <p>Take a quick survey to help us understand the needs of West-Flanders citizens better.</p>
+        <a
+          class="survey-btn"
+          href="javascript:void(window.open('https://form.jotform.com/253514287526057','blank','scrollbars=yes,toolbar=no,width=700,height=500'))"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+          </svg>
+          Take the Survey
+        </a>
+        <p class="survey-time">Takes only 20 seconds</p>
+      </aside>
+    </div>
+  </main>
 </body>
 </html>

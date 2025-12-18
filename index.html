@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Food Hexagon - Kaaidistrict Food Hub</title>
+  <meta name="description" content="Discover local food, track your carbon footprint, and connect with your community in Kaaidistrict, Bruges.">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(180deg, #F8FAFC 0%, #E6EEF5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+    }
+
+    .logo {
+      width: 140px;
+      height: 140px;
+      margin-bottom: 24px;
+      border-radius: 28px;
+      box-shadow: 0 8px 32px rgba(10, 50, 88, 0.15);
+    }
+
+    h1 {
+      color: #0a3258;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #64748B;
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+
+    .tagline {
+      color: #0a3258;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 40px;
+      padding: 0 16px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      max-width: 280px;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: default;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(10, 50, 88, 0.2);
+    }
+
+    .btn-android {
+      background: #0a3258;
+      color: white;
+    }
+
+    .btn-ios {
+      background: white;
+      color: #0a3258;
+      border: 2px solid #0a3258;
+    }
+
+    .btn-icon {
+      width: 24px;
+      height: 24px;
+    }
+
+    .coming-soon {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      margin-left: 4px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 48px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: #64748B;
+      font-size: 0.9rem;
+    }
+
+    .feature-icon {
+      font-size: 1.2rem;
+    }
+
+    footer {
+      margin-top: 48px;
+      color: #94A3B8;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.75rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .features {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="icon.png" alt="The Food Hexagon Logo" class="logo">
+
+    <h1>The Food Hexagon</h1>
+    <p class="subtitle">Kaaidistrict Food Hub</p>
+
+    <p class="tagline">
+      Discover local food, track your carbon footprint, and connect with your community in Bruges.
+    </p>
+
+    <div class="buttons">
+      <div class="btn btn-android">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.523 2.047a.5.5 0 0 0-.738.17l-1.964 3.39a9.06 9.06 0 0 0-5.642 0L7.215 2.217a.5.5 0 0 0-.738-.17.5.5 0 0 0-.17.738l1.84 3.18A8.96 8.96 0 0 0 3 13h18a8.96 8.96 0 0 0-5.147-7.035l1.84-3.18a.5.5 0 0 0-.17-.738zM7 10.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm8 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM3 14v6a2 2 0 0 0 2 2h1v-8H3zm17 0v8h1a2 2 0 0 0 2-2v-6h-3zM6 14v9h3v-9H6zm4 0v9h4v-9h-4zm5 0v9h3v-9h-3z"/>
+        </svg>
+        Android <span class="coming-soon">Coming Soon</span>
+      </div>
+
+      <div class="btn btn-ios">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+        </svg>
+        iOS <span class="coming-soon">Coming Soon</span>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <span class="feature-icon">🥬</span>
+        Local Producers
+      </div>
+      <div class="feature">
+        <span class="feature-icon">🚲</span>
+        Food Bikes
+      </div>
+      <div class="feature">
+        <span class="feature-icon">♻️</span>
+        Composting
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 The Food Hexagon
+    </footer>
+  </div>
+</body>
+</html>
